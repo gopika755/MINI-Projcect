@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>HOME BLOOM | Categories</title>
+
+    <title>Shop - Home Bloom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8B6F47;
+        }
+
+        .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding-right: 10px;
+    }
+
+.header-icons i:hover {
+    color: #8B6F47;
+    transform: scale(1.1);
+    
+}
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f5f5f0 0%, #e8e8e0 100%);
+            padding: 80px 50px 60px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Shop Container */
+        .shop-container {
+            padding: 60px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .shop-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #8B6F47;
+            color: #fff;
+        }
+
+        .sort-select {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 80px;
+        }
+
+        .category-header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #8B6F47;
+        }
+
+        .category-header h2 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .category-header p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #8B6F47;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .product-icons {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-icons {
+            opacity: 1;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .icon-btn:hover {
+            background: #8B6F47;
+            color: #fff;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: #8B6F47;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .rating-text {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .price-current {
+            color: #8B6F47;
+        }
+
+        .price-old {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 16px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: #8B6F47;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #6d5636;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: #fff;
+            padding: 60px 50px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 30px;
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .shop-container {
+                padding: 40px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shop-filters {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .filter-group {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        #search-toggle {
+    display: none;
+}
+
+/* Search bar box styling */
+.search-box {
+    position: absolute;
+    top: 70px; /* just under the header */
+    right: 50px;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 250px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+}
+
+/* Input inside the search box */
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #8B6F47;
+    font-size: 14px;
+    outline: none;
+}
+
+/* When checkbox is checked → show the search bar */
+#search-toggle:checked ~ .search-box {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Search icon style */
+.search-icon i {
+    font-size: 20px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span>🪑</span>
+            <span>HOME BLOOM</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category' %}">Category</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+    <!-- Search Toggle (no JS) -->
+<label for="search-toggle" class="search-icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</label>
+
+<input type="checkbox" id="search-toggle">
+
+<div class="search-box">
+    <input type="text" placeholder="Search products...">
+</div>
+    
+    <i class="fa-regular fa-heart"></i>
+    <i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Collection</h1>
+        <p>Discover beautiful furniture and decor for your home</p>
+    </section>
+
+    <!-- Shop Container -->
+    <div class="shop-container">
+        <!-- Filters -->
+        <div class="shop-filters">
+            <div class="filter-group">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Chairs</button>
+                <button class="filter-btn">Sofas</button>
+                <button class="filter-btn">Beds</button>
+                <button class="filter-btn">Lamps</button>
+                <button class="filter-btn">Pots</button>
+                <button class="filter-btn">Lights</button>
+            </div>
+            <select class="sort-select">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+                <option>Best Selling</option>
+            </select>
+        </div>
+
+        <!-- CHAIRS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Chairs</h2>
+                <p>Comfortable seating for every room</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/chair1.jpg" alt="Modern Dining Chair" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">New</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chairs</div>
+                        <h3>Modern Dining Chair</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(24 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$180.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/chair2.jpg" alt="Velvet Accent Chair" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chairs</div>
+                        <h3>Velvet Accent Chair</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(18 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$250.00</span>
+                            <span class="price-old">$320.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/chair3.jpg" alt="Wooden Rocking Chair" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Chairs</div>
+                        <h3>Wooden Rocking Chair</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">(32 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$295.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOFAS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Sofas</h2>
+                <p>Luxurious comfort for your living space</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/sofa1.jpg" alt="3-Seater Sofa" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">Popular</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sofas</div>
+                        <h3>Modern 3-Seater Sofa</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(45 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$899.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/sofa2.jpg" alt="L-Shape Sofa" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sofas</div>
+                        <h3>L-Shape Sectional Sofa</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(38 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$1,299.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/sofa3.jpg" alt="Loveseat Sofa" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">New</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sofas</div>
+                        <h3>Compact Loveseat Sofa</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">(28 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$649.00</span>
+                            <span class="price-old">$799.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEDS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Beds</h2>
+                <p>Sleep in style and comfort</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/bed1.jpg" alt="King Size Bed" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Beds</div>
+                        <h3>Modern King Size Bed</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(52 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$1,199.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/bed2.jpg" alt="Platform Bed" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Beds</div>
+                        <h3>Minimalist Platform Bed</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">(34 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$849.00</span>
+                            <span class="price-old">$1,099.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/bed3.jpg" alt="Storage Bed" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Beds</div>
+                        <h3>Storage Bed Frame</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(41 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$999.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAMPS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Lamps</h2>
+                <p>Illuminate your space beautifully</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/lamp1.jpg" alt="Table Lamp" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">New</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Lamps</div>
+                        <h3>Modern Table Lamp</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(29 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$89.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/lamp2.jpg" alt="Floor Lamp" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Lamps</div>
+                        <h3>Arc Floor Lamp</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">(22 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$159.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/lamp3.jpg" alt="Desk Lamp" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">Popular</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Lamps</div>
+                        <h3>LED Desk Lamp</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(67 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$69.00</span>
+                            <span class="price-old">$95.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POTS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Pots & Planters</h2>
+                <p>Beautiful homes for your plants</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/pot1.jpg" alt="Ceramic Pot" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Pots</div>
+                        <h3>Ceramic Planter Set</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(56 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$45.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/pot2.jpg" alt="Hanging Planter" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-badge">New</div>
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Pots</div>
+                        <h3>Hanging Macrame Planter</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="rating-text">(31 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$35.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/pot3.jpg" alt="Stone Pot" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="product-icons">
+                            <div class="icon-btn">❤️</div>
+                            <div class="icon-btn">👁️</div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Pots</div>
+                        <h3>Natural Stone Planter</h3>
+                        <div class="product-rating">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="rating-text">(43 reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">$65.00</span>
+                            <span class="price-old">$85.00</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTS CATEGORY -->
+        <section class="category-section">
+            <div class="category-header">
+                <h2>Ceiling Lights</h2>
+                <p>Stunning fixtures to brighten any room</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/products/light1.jpg" alt="Chandelier" style="width: 100%; height: 100

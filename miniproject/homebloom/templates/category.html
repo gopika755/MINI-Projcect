@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>HOME BLOOM | Categories</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Georgia', serif;
+            color:#333;
+            background:#fff;
+        }
+
+        /* Header (same as home page) */
+        header {
+            background:#fff;
+            padding:20px 50px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom:1px solid #eee;
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+
+        .logo{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-icons i {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header-icons {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        padding-right: 10px;
+}
+.header-icons i:hover {
+    color: #8B6F47;
+    transform: scale(1.1);
+    
+}
+
+
+        /* Page Title */
+        .page-title{
+            text-align:center;
+            padding:60px 0 20px;
+        }
+
+        .page-title h1{
+            font-size:42px;
+        }
+
+        .page-title p{
+            color:#666;
+        }
+
+        /* Category Grid */
+        .category-grid{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap:40px;
+            padding:50px;
+        }
+
+        .category-card{
+            background:#f5f5f5;
+            border-radius:15px;
+            padding:20px;
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .category-card:hover{
+            background:#e7e7e0;
+        }
+
+        .category-img{
+            height:250px;
+            background:#ddd;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+
+        .category-card h3{
+            font-size:20px;
+            margin-bottom:10px;
+        }
+
+        .category-card a{
+            display:inline-block;
+            margin-top:10px;
+            background:#8B6F47;
+            color:white;
+            padding:10px 25px;
+            border-radius:5px;
+            text-decoration:none;
+            font-size:14px;
+            letter-spacing:1px;
+        }
+        /* Hide checkbox */
+#search-toggle {
+    display: none;
+}
+
+/* Search bar box styling */
+.search-box {
+    position: absolute;
+    top: 70px; /* just under the header */
+    right: 50px;
+    background: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 250px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+}
+
+/* Input inside the search box */
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #8B6F47;
+    font-size: 14px;
+    outline: none;
+}
+
+/* When checkbox is checked → show the search bar */
+#search-toggle:checked ~ .search-box {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Search icon style */
+.search-icon i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+        
+    </style>
+</head>
+<body>
+
+<header>
+        <div class="logo">
+            <span>🪑</span>
+            <span>HOME BLOOM</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category'%}">Category</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+
+ <!-- Search Toggle (no JS) -->
+<label for="search-toggle" class="search-icon">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</label>
+
+<input type="checkbox" id="search-toggle">
+
+<div class="search-box">
+    <input type="text" placeholder="Search products...">
+</div>
+
+    <i class="fa-regular fa-heart"></i>
+
+    <i class="fa-solid fa-cart-shopping"></i>
+</div>
+    </header>
+
+<!-- Category Title -->
+<div class="page-title">
+    <h1>Shop by Category</h1>
+    <p>Choose your style from our premium collections</p>
+</div>
+
+<!-- Category Grid -->
+<div class="category-grid">
+
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Sofa</h3>
+        <a href="#">View Products</a>
+    </div>
+
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Chair</h3>
+        <a href="#">View Products</a>
+    </div>
+
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Bed</h3>
+        <a href="#">View Products</a>
+    </div>
+
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Lamp</h3>
+        <a href="#">View Products</a>
+    </div>
+
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Table</h3>
+        <a href="#">View Products</a>
+    </div>
+    <div class="category-card">
+        <div class="category-img"></div>
+        <h3>Pots</h3>
+        <a href="#">View Products</a>
+    </div>
+</div>
+
+</body>
+</html>
