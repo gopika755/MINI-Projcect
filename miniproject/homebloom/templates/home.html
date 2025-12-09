@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Bloom</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    color: #111;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.navbar ul a {
+    text-decoration: none;
+    color: #111;
+    font-size: 15px;
+}
+
+.navbar .icons span {
+    margin-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    height: 70vh;
+    background: url("images/home-decoration-banner.jpg");
+    
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.hero-text h1 {
+    color: white;
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* SERVICES */
+.services {
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    font-size: 15px;
+}
+
+/* CATEGORY CARDS */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 40px 60px;
+}
+
+.cat-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.cat-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.cat-card h3 {
+    padding: 15px;
+    font-size: 18px;
+}
+
+/* FEATURE SECTION */
+.feature {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    align-items: center;
+}
+
+.feature-text {
+    max-width: 45%;
+}
+
+.feature-text h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.feature-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.feature-text button {
+    padding: 12px 25px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.feature-img {
+    width: 45%;
+    border-radius: 10px;
+}
+
+/* BESTSELLER */
+.bestseller {
+    padding: 60px;
+    background: white;
+}
+
+.bestseller h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product {
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h4 {
+    margin-top: 15px;
+    font-size: 17px;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">HOME BLOOM</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Featured</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <span>🔍</span>
+            <span>🤍</span>
+            <span>🛒</span>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>The Art of Modern<br>Interior Living</h1>
+        </div>
+    </section>
+
+    <!-- SERVICE BAR -->
+    <section class="services">
+        <div class="service-item">🚚 Free Shipping Over $50</div>
+        <div class="service-item">✔ Quality Assurance</div>
+        <div class="service-item">📦 Return within 14 days</div>
+        <div class="service-item">💬 Support 24/7</div>
+    </section>
+
+    <!-- CATEGORY CARDS -->
+    <section class="categories">
+        <div class="cat-card">
+            <img src="images/cat1.jpg" alt="">
+            <h3>Bathroom</h3>
+        </div>
+
+        <div class="cat-card">
+            <img src="images/cat2.jpg" alt="">
+            <h3>Chair</h3>
+        </div>
+
+        <div class="cat-card">
+            <img src="images/cat3.jpg" alt="">
+            <h3>Decor</h3>
+        </div>
+
+        <div class="cat-card">
+            <img src="images/cat4.jpg" alt="">
+            <h3>Lamp</h3>
+        </div>
+    </section>
+
+    <!-- FEATURE SECTION -->
+    <section class="feature">
+        <div class="feature-text">
+            <h2>Luminous Living: Innovative Lighting Designs</h2>
+            <p>
+                Most of the style’s furniture has a touch of European design
+                with simple harmony and dark interior tone.
+            </p>
+            <button>Shop Now</button>
+        </div>
+
+        <img src="images/feature.jpg" class="feature-img">
+    </section>
+
+    <!-- BESTSELLER -->
+    <section class="bestseller">
+        <h2>Bestseller</h2>
+        <p>Experience the best products at our store!</p>
+
+        <div class="product-grid">
+            <div class="product">
+                <img src="images/p1.jpg" alt="">
+                <h4>Chair</h4>
+            </div>
+
+            <div class="product">
+                <img src="images/p2.jpg" alt="">
+                <h4>Green Chair</h4>
+            </div>
+
+            <div class="product">
+                <img src="images/p3.jpg" alt="">
+                <h4>Glass Table</h4>
+            </div>
+
+            <div class="product">
+                <img src="images/p4.jpg" alt="">
+                <h4>Modern Decor</h4>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
