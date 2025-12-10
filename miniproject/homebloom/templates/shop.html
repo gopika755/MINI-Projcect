@@ -42,6 +42,11 @@
             font-weight: bold;
         }
 
+        .logo img {
+            width: 30px;
+            height: 30px;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -54,26 +59,48 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #8B6F47;
         }
 
         .header-icons {
-        display: flex;
-        align-items: center;
-        gap: 22px;
-        padding-right: 10px;
-    }
-
-.header-icons i:hover {
-    color: #8B6F47;
-    transform: scale(1.1);
-    
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
+/* hide the checkbox */
+.search-toggle {
+    display: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input before expanding */
+.search-box input {
+    width: 0;
+    opacity: 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+/* icon */
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* WHEN CHECKBOX IS CLICKED → EXPAND */
+.search-toggle:checked + .search-box input {
+    width: 180px;
+    opacity: 1;
+    padding: 5px 12px;
+}
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, #f5f5f0 0%, #e8e8e0 100%);
@@ -382,57 +409,22 @@
                 justify-content: center;
             }
         }
-        #search-toggle {
-    display: none;
+        .wishlist-link {
+    color: inherit;     /* keep same icon color */
+    text-decoration: none;
 }
 
-/* Search bar box styling */
-.search-box {
-    position: absolute;
-    top: 70px; /* just under the header */
-    right: 50px;
-    background: #fff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    width: 250px;
 
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: 0.25s ease;
-}
-
-/* Input inside the search box */
-.search-box input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #8B6F47;
-    font-size: 14px;
-    outline: none;
-}
-
-/* When checkbox is checked → show the search bar */
-#search-toggle:checked ~ .search-box {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
-/* Search icon style */
-.search-icon i {
-    font-size: 20px;
-    cursor: pointer;
-}
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
+    <div class="logo">
             <span>🪑</span>
             <span>HOME BLOOM</span>
         </div>
+</a>
+
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -442,18 +434,18 @@
         </nav>
         <div class="header-icons">
     <!-- Search Toggle (no JS) -->
-<label for="search-toggle" class="search-icon">
-    <i class="fa-solid fa-magnifying-glass"></i>
-</label>
+<div class="header-icons">
+     <input type="checkbox" id="toggleSearch" class="search-toggle">
 
-<input type="checkbox" id="search-toggle">
-
-<div class="search-box">
-    <input type="text" placeholder="Search products...">
-</div>
-    
-    <i class="fa-regular fa-heart"></i>
-    <i class="fa-solid fa-cart-shopping"></i>
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <label for="toggleSearch" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+    </div>
+ <a href="{% url 'wishlist' %}" class="wishlist-link">
+        <i class="fa-regular fa-heart"></i>
+    </a>    <i class="fa-solid fa-cart-shopping"></i>
 </div>
 
     </header>

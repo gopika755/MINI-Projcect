@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background:white;
+}
+
+/* MAIN LAYOUT */
+.cart-container {
+    width: 90%;
+    margin: 50px auto;
+    background: #fff6f7;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    min-height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.cart-left {
+    padding: 50px;
+    background: #fff;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th {
+    text-align: left;
+    color: #888;
+    padding-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.cart-item td {
+    padding: 20px 0;
+    vertical-align: top;
+}
+
+/* PRODUCT */
+.product-box {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.product-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.product-info h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* QTY */
+.qty-box {
+    border: 1px solid #8B6F47;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+/* ADD NOTE */
+.add-note {
+    margin-top: 40px;
+}
+
+.add-note label {
+    font-size: 14px;
+    color: #888;
+}
+
+.add-note input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    background: #fdfdfd;
+    border-radius: 25px;
+}
+
+/* RIGHT SIDE */
+.cart-right {
+    background:  #e8e8e0 ;
+    padding: 60px 40px;
+    position: relative;
+}
+
+.summary-box {
+    padding: 20px;
+}
+
+.summary-box h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 10px;
+    width: 150px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    font-size: 16px;
+}
+
+.shipping {
+    color: #666;
+    font-size: 12px;
+}
+
+.terms {
+    margin: 20px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #8B6F47;
+    color: #fff;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+
+.bag-bg {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 120px;
+    height: 120px;
+    background: url('images/bag.png') no-repeat center/contain;
+    opacity: 0.15;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="cart-container">
+
+    <!-- LEFT SIDE -->
+    <div class="cart-left">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- PRODUCT 1 -->
+                <tr class="cart-item">
+                    <td class="product-box">
+                        <div class="product-img">
+                            <img src="images/product1.jpg">
+                            <span class="remove">×</span>
+                        </div>
+                        <div class="product-info">
+                            <h4>Sandals</h4>
+                            <p>#875900200001</p>
+                            <p>Size: 39 • Color: White</p>
+                        </div>
+                    </td>
+
+                    <td>$59.99</td>
+
+                    <td>
+                        <div class="qty-box">- 1 +</div>
+                    </td>
+
+                    <td>$59.99</td>
+                </tr>
+
+                <!-- PRODUCT 2 -->
+                <tr class="cart-item">
+                    <td class="product-box">
+                        <div class="product-img">
+                            <img src="images/product2.jpg">
+                            <span class="remove">×</span>
+                        </div>
+                        <div class="product-info">
+                            <h4>Zebra Purse</h4>
+                            <p>#3278949002001</p>
+                            <p>Size: One Size • Color: Black Mix</p>
+                        </div>
+                    </td>
+
+                    <td>$29.96</td>
+
+                    <td>
+                        <div class="qty-box">- 2 +</div>
+                    </td>
+
+                    <td>$59.92</td>
+                </tr>
+
+                <!-- PRODUCT 3 -->
+                <tr class="cart-item">
+                    <td class="product-box">
+                        <div class="product-img">
+                            <img src="images/product3.jpg">
+                            <span class="remove">×</span>
+                        </div>
+                        <div class="product-info">
+                            <h4>Knitted Top</h4>
+                            <p>#8715637002001</p>
+                            <p>Size: S • Color: Pink</p>
+                        </div>
+                    </td>
+
+                    <td>$29.99</td>
+
+                    <td>
+                        <div class="qty-box">- 1 +</div>
+                    </td>
+
+                    <td>$29.99</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- ADD NOTE -->
+        <div class="add-note">
+            <label>Add a note</label>
+            <input type="text" placeholder="Some words to In House team">
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="cart-right">
+
+        <div class="summary-box">
+
+            <h3>Cart Total</h3>
+
+            <div class="summary-line">
+                <span>Total</span>
+                <strong>$189.90</strong>
+            </div>
+
+            <p class="shipping">Shipping & taxes calculated at checkout</p>
+
+            <div class="terms">
+                <input type="checkbox">
+                <label>I agree to Terms & Conditions</label>
+            </div>
+
+            <button class="checkout-btn">Checkout</button>
+
+        </div>
+
+        <div class="bag-bg"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
