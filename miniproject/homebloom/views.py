@@ -11,3 +11,7 @@ def wishlist(request):
     return render(request,'wishlist.html')
 def cart(request):
     return render(request,'cart.html')
+def login(request):
+    return render(request,'login.html')
+def signup(request):
+    return render(request, "signup.html")

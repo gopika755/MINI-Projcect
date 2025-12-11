@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist</title>
+    <title>HOME BLOOM</title>
     <link rel="stylesheet" href="wishlist.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -11,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Georgia', serif;
 }
 
 body {
@@ -98,7 +98,7 @@ body {
     padding: 5px 12px;
 }
 
-.wl-header {
+h1 {
     text-align: center;
     display: block !important;
 }
@@ -207,6 +207,52 @@ hr {
 .add-all:hover {
     opacity: 0.8;
 }
+/* LOGIN DROPDOWN */
+.login-dropdown {
+    position: relative;
+}
+
+.login-dropdown input {
+    display: none;
+}
+
+.login-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login-menu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: #fff;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    z-index: 100;
+}
+
+.login-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-menu li a:hover {
+    background: #f2f2f2;
+}
+
+/* SHOW WHEN CLICKED */
+#loginToggle:checked ~ .login-menu {
+    display: block;
+}
+
 
     </style>
 </head>
@@ -227,6 +273,20 @@ hr {
         </nav>
         <div class="header-icons">
     <!-- Search Toggle (no JS) -->
+              <!-- LOGIN DROPDOWN -->
+<div class="login-dropdown">
+    <input type="checkbox" id="loginToggle">
+    <label for="loginToggle" class="login-icon">
+        <i class="fa-regular fa-user"></i>
+    </label>
+
+    <ul class="login-menu">
+        <li><a href="/signup">Login</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/coupons">Coupons</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+    </ul>
+</div>
 <div class="header-icons">
      <input type="checkbox" id="toggleSearch" class="search-toggle">
 
@@ -238,14 +298,17 @@ hr {
     </div>
  <a href="{% url 'wishlist' %}" class="wishlist-link">
         <i class="fa-regular fa-heart"></i>
-    </a>    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+    <a href="{%url 'cart'%}">    
+    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
 </div>
 
     </header>
 
-    <header class="wl-header">
+    
         <h1>Wishlist</h1>
-    </header>
+    
 
     <section class="wishlist-section">
 

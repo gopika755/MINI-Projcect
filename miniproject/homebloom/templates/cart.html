@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>HOME BLOOM</title>
     <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         * {
     margin: 0;
@@ -16,7 +18,87 @@ body {
     font-family: 'Georgia', serif;
     background:white;
 }
+ 
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* hide the checkbox */
+.search-toggle {
+    display: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input before expanding */
+.search-box input {
+    width: 0;
+    opacity: 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+/* icon */
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* WHEN CHECKBOX IS CLICKED → EXPAND */
+.search-toggle:checked + .search-box input {
+    width: 180px;
+    opacity: 1;
+    padding: 5px 12px;
+}
 /* MAIN LAYOUT */
 .cart-container {
     width: 90%;
@@ -176,10 +258,102 @@ body {
     background: url('images/bag.png') no-repeat center/contain;
     opacity: 0.15;
 }
+/* LOGIN DROPDOWN */
+.login-dropdown {
+    position: relative;
+}
+
+.login-dropdown input {
+    display: none;
+}
+
+.login-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login-menu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    background: #fff;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    z-index: 100;
+}
+
+.login-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-menu li a:hover {
+    background: #f2f2f2;
+}
+
+/* SHOW WHEN CLICKED */
+#loginToggle:checked ~ .login-menu {
+    display: block;
+}
+
 
     </style>
 </head>
 <body>
+     <header>
+        <div class="logo">
+            <span>🪑</span>
+            <span>HOME BLOOM</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category'%}">Category</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+                     <!-- LOGIN DROPDOWN -->
+<div class="login-dropdown">
+    <input type="checkbox" id="loginToggle">
+    <label for="loginToggle" class="login-icon">
+        <i class="fa-regular fa-user"></i>
+    </label>
+
+    <ul class="login-menu">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/coupons">Coupons</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        
+    </ul>
+</div>
+     <input type="checkbox" id="toggleSearch" class="search-toggle">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <label for="toggleSearch" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+    </div>
+     <a href="{% url 'wishlist' %}" class="wishlist-link">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+    <a href="{% url 'cart' %}" class="cart-link">
+    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+</div>
+</div>
+
+    </header>
 
 <div class="cart-container">
 
