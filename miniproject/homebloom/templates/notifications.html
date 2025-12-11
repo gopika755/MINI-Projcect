@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | Home Bloom</title>
+    <link rel="stylesheet" href="notifications.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* icon */
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* WHEN CHECKBOX IS CLICKED → EXPAND */
+.search-toggle:checked + .search-box input {
+    width: 180px;
+    opacity: 1;
+    padding: 5px 12px;
+}
+/* hide the checkbox */
+.search-toggle {
+    display: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input before expanding */
+.search-box input {
+    width: 0;
+    opacity: 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+/* LOGIN DROPDOWN */
+.login-dropdown input {
+    display: none;
+}
+
+.login-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login-menu {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    background: #fff;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    z-index: 100;
+}
+
+.login-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-menu li a:hover {
+    background: #f2f2f2;
+}
+
+/* show when checkbox clicked */
+#loginToggle:checked ~ .login-menu {
+    display: block;
+}
+
+/* PAGE TITLE */
+.page-title {
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* NOTIFICATION SECTION */
+.notification-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.notification-card {
+    display: flex;
+    align-items: center;
+    background: #f7f7f7;
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    gap: 15px;
+    border-left: 6px solid #8B6F47;
+}
+
+.notification-card.unread {
+    border-left-color: #8B6F47;
+}
+
+.notification-card i {
+    font-size: 24px;
+    color: #8B6F47;
+}
+
+.notification-card.unread i {
+    color:#8B6F47;
+}
+
+.notif-content p {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.notif-content .date {
+    font-size: 13px;
+    color: #777;
+}
+.login-dropdown:focus-within .login-menu {
+    display: block;
+}
+.login-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none; /* removes focus outline */
+}
+
+.login-dropdown .login-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* places menu below the icon */
+    right: 0;
+    background: #fff;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 10;
+}
+
+.login-dropdown .login-menu li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-dropdown .login-menu li a:hover {
+    background: #f0f0f0;
+}
+
+/* Show menu when the icon is clicked (focus within) */
+.login-dropdown:focus-within .login-menu {
+    display: block;
+}
+.logo-text {
+    text-decoration: none;
+    color: inherit;   /* keeps your original color */
+    font-weight: 700; 
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+
+    </style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+        <div class="logo">
+    <a href="/" class="logo-text">🪑HOME BLOOM</a>
+</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category'%}">Category</a></li>
+            </ul>
+        </nav>
+            <div class="header-icons">
+                 <!-- LOGIN DROPDOWN -->
+<div class="login-dropdown">
+    <input type="checkbox" id="loginToggle">
+    <label for="loginToggle" class="login-icon">
+        
+        <div class="login-dropdown" tabindex="0">
+    <!-- This is your existing icon -->
+    <i class="fa-regular fa-user"></i>
+
+    <!-- Your existing menu -->
+    <ul class="login-menu">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/coupons">Coupons</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+    </ul>
+</div>
+
+    </label>
+
+   
+</div>
+     <input type="checkbox" id="toggleSearch" class="search-toggle">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <label for="toggleSearch" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+
+    </div>
+     <a href="{% url 'wishlist' %}" class="wishlist-link">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+    <a href="{% url 'cart' %}" class="cart-link">
+    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+</div>
+</div>
+
+    </header>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h1>Notifications</h1>
+</div>
+
+<!-- NOTIFICATION LIST -->
+<section class="notification-container">
+
+    <div class="notification-card unread">
+        <i class="fa-solid fa-bell"></i>
+        <div class="notif-content">
+            <p><strong>New Arrivals:</strong> Modern Sofa collection is here!</p>
+            <span class="date">Today, 09:30 AM</span>
+        </div>
+    </div>
+
+    <div class="notification-card">
+        <i class="fa-solid fa-gift"></i>
+        <div class="notif-content">
+            <p><strong>Coupon Alert:</strong> Get ₹200 OFF on orders above ₹999.</p>
+            <span class="date">Yesterday, 03:45 PM</span>
+        </div>
+    </div>
+
+    <div class="notification-card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div class="notif-content">
+            <p><strong>Order Shipped:</strong> Your order #12345 is on the way.</p>
+            <span class="date">2 Dec 2025</span>
+        </div>
+    </div>
+
+    <div class="notification-card">
+        <i class="fa-solid fa-star"></i>
+        <div class="notif-content">
+            <p><strong>Review Request:</strong> Rate your recent purchase.</p>
+            <span class="date">30 Nov 2025</span>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

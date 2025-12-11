@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders | Home Bloom</title>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* icon */
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* WHEN CHECKBOX IS CLICKED → EXPAND */
+.search-toggle:checked + .search-box input {
+    width: 180px;
+    opacity: 1;
+    padding: 5px 12px;
+}
+/* hide the checkbox */
+.search-toggle {
+    display: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input before expanding */
+.search-box input {
+    width: 0;
+    opacity: 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+/* LOGIN DROPDOWN */
+.login-dropdown input {
+    display: none;
+}
+
+.login-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login-menu {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    background: #fff;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    z-index: 100;
+}
+
+.login-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-menu li a:hover {
+    background: #f2f2f2;
+}
+
+/* show when checkbox clicked */
+#loginToggle:checked ~ .login-menu {
+    display: block;
+}
+
+/* ORDER SECTION */
+.orders-section {
+    padding: 50px;
+}
+
+.orders-section h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+/* ORDER CARD */
+.order-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-left h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #8B6F47;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.status {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.status.delivered {
+    color: green;
+}
+
+.status.transit {
+    color: orange;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0;
+}
+
+.btn {
+    background: #8B6F47;
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.order-img {
+    width: 150px;
+    border-radius: 10px;
+}
+.logo-text {
+    text-decoration: none;
+    color: inherit;   /* keeps your original color */
+    font-weight: 700; 
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+    </style>
+</head>
+
+<body>
+
+<header>
+       <div class="logo">
+    <a href="/" class="logo-text">🪑HOME BLOOM</a>
+</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category'%}">Category</a></li>
+            </ul>
+        </nav>
+            <div class="header-icons">
+                 <!-- LOGIN DROPDOWN -->
+<div class="login-dropdown">
+    <input type="checkbox" id="loginToggle">
+    <label for="loginToggle" class="login-icon">
+        <i class="fa-regular fa-user"></i>
+    </label>
+
+    <ul class="login-menu">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/coupons">Coupons</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+        
+    </ul>
+</div>
+     <input type="checkbox" id="toggleSearch" class="search-toggle">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <label for="toggleSearch" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+
+    </div>
+     <a href="{% url 'wishlist' %}" class="wishlist-link">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+    <a href="{% url 'cart' %}" class="cart-link">
+    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+</div>
+</div>
+
+    </header>
+
+<section class="orders-section">
+    <h1>Your Orders</h1>
+
+    <!-- ORDER 1 -->
+    <div class="order-card">
+        <div class="order-left">
+            <h3>Wooden Coffee Table</h3>
+            <p class="price">₹ 4,999</p>
+            <p class="status delivered">Delivered</p>
+            <p class="date">03 Dec 2025</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <img src="https://via.placeholder.com/150" class="order-img">
+    </div>
+
+    <!-- ORDER 2 -->
+    <div class="order-card">
+        <div class="order-left">
+            <h3>Modern Chair</h3>
+            <p class="price">₹ 2,999</p>
+            <p class="status transit">In Transit</p>
+            <p class="date">Expected: 10 Dec 2025</p>
+            <a href="#" class="btn">Track Order</a>
+        </div>
+
+        <img src="https://via.placeholder.com/150" class="order-img">
+    </div>
+
+</section>
+
+</body>
+</html>

@@ -327,7 +327,13 @@
 #loginToggle:checked ~ .login-menu {
     display: block;
 }
-
+.logo-text {
+    text-decoration: none;
+    color: inherit;   /* keeps your original color */
+    font-weight: 700; 
+    font-size: 22px;
+    letter-spacing: 1px;
+}
 
 
 
@@ -336,10 +342,9 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo">
-            <span>🪑</span>
-            <span>HOME BLOOM</span>
-        </div>
+       <div class="logo">
+    <a href="/" class="logo-text">🪑HOME BLOOM</a>
+</div>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -348,7 +353,7 @@
             </ul>
         </nav>
             <div class="header-icons">
-                 <!-- LOGIN DROPDOWN -->
+                     <!-- LOGIN DROPDOWN -->
 <div class="login-dropdown">
     <input type="checkbox" id="loginToggle">
     <label for="loginToggle" class="login-icon">
@@ -360,9 +365,11 @@
         <li><a href="/orders">Orders</a></li>
         <li><a href="/coupons">Coupons</a></li>
         <li><a href="/notifications">Notifications</a></li>
-        
+
     </ul>
 </div>
+
+    </label>
      <input type="checkbox" id="toggleSearch" class="search-toggle">
 
     <div class="search-box">

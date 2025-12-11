@@ -303,6 +303,13 @@ body {
 #loginToggle:checked ~ .login-menu {
     display: block;
 }
+.logo-text {
+    text-decoration: none;
+    color: inherit;   /* keeps your original color */
+    font-weight: 700; 
+    font-size: 22px;
+    letter-spacing: 1px;
+}
 
 
     </style>
@@ -310,9 +317,8 @@ body {
 <body>
      <header>
         <div class="logo">
-            <span>🪑</span>
-            <span>HOME BLOOM</span>
-        </div>
+    <a href="/" class="logo-text">🪑HOME BLOOM</a>
+</div>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>

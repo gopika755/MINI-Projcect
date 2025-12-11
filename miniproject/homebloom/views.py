@@ -15,3 +15,9 @@ def login(request):
     return render(request,'login.html')
 def signup(request):
     return render(request, "signup.html")
+def orders(request):
+    return render(request,'orders.html')
+def coupons(request):
+    return render(request,'coupons.html')
+def notifications(request):
+    return render(request,'notifications.html')

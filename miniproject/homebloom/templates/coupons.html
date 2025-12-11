@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupons | Home Bloom</title>
+    <link rel="stylesheet" href="coupons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* icon */
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+/* WHEN CHECKBOX IS CLICKED → EXPAND */
+.search-toggle:checked + .search-box input {
+    width: 180px;
+    opacity: 1;
+    padding: 5px 12px;
+}
+/* hide the checkbox */
+.search-toggle {
+    display: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input before expanding */
+.search-box input {
+    width: 0;
+    opacity: 0;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+/* LOGIN DROPDOWN */
+.login-dropdown input {
+    display: none;
+}
+
+.login-icon {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.login-menu {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    background: #fff;
+    width: 180px;
+    border-radius: 8px;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    z-index: 100;
+}
+
+.login-menu li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+}
+
+.login-menu li a:hover {
+    background: #f2f2f2;
+}
+
+/* show when checkbox clicked */
+#loginToggle:checked ~ .login-menu {
+    display: block;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-icons a {
+    color: black;
+}
+
+/* PAGE TITLE */
+.page-title {
+    text-align: center;
+    padding: 40px 0 20px;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* COUPON SECTION */
+.coupon-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.coupon-card {
+    display: flex;
+    justify-content: space-between;
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 6px solid #8B6F47;;
+}
+
+.coupon-card h2 {
+    font-size: 24px;
+    color: #8B6F47;;
+}
+
+.coupon-card p {
+    margin: 6px 0;
+    color: #444;
+}
+
+.code span {
+    font-weight: bold;
+    color: black;
+}
+
+.expiry {
+    font-size: 13px;
+    color: #777;
+}
+
+.apply-btn {
+    background: #8B6F47;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.apply-btn:hover {
+    opacity: 0.8;
+}
+.logo-text {
+    text-decoration: none;
+    color: inherit;   /* keeps your original color */
+    font-weight: 700; 
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+        <div class="logo">
+    <a href="/" class="logo-text">🪑HOME BLOOM</a>
+</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'category'%}">Category</a></li>
+            </ul>
+        </nav>
+            <div class="header-icons">
+<div class="login-dropdown">
+    <input type="checkbox" id="loginToggle">
+    <label for="loginToggle" class="login-icon">
+        <i class="fa-regular fa-user"></i>
+    </label>
+
+    <ul class="login-menu">
+        <li><a href="/login">Login</a></li>
+        <li><a href="/orders">Orders</a></li>
+        <li><a href="/coupons">Coupons</a></li>
+        <li><a href="/notifications">Notifications</a></li>
+
+    </ul>
+</div>
+
+    </label>
+     <input type="checkbox" id="toggleSearch" class="search-toggle">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <label for="toggleSearch" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+
+    </div>
+     <a href="{% url 'wishlist' %}" class="wishlist-link">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+    <a href="{% url 'cart' %}" class="cart-link">
+    <i class="fa-solid fa-cart-shopping"></i>
+    </a>
+</div>
+</div>
+
+    </header>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    <h1>Your Coupons</h1>
+</div>
+
+<!-- COUPON LIST -->
+<section class="coupon-container">
+
+    <!-- Coupon 1 -->
+    <div class="coupon-card">
+        <div class="left">
+            <h2>FLAT ₹200 OFF</h2>
+            <p>Valid on orders above ₹999</p>
+            <p class="code">Code: <span>HB200</span></p>
+            <p class="expiry">Expires: 28 Dec 2025</p>
+        </div>
+
+        <div class="right">
+            <button class="apply-btn">Apply</button>
+        </div>
+    </div>
+
+    <!-- Coupon 2 -->
+    <div class="coupon-card">
+        <div class="left">
+            <h2>15% OFF</h2>
+            <p>On Furniture Collection</p>
+            <p class="code">Code: <span>FURN15</span></p>
+            <p class="expiry">Expires: 5 Jan 2026</p>
+        </div>
+
+        <div class="right">
+            <button class="apply-btn">Apply</button>
+        </div>
+    </div>
+
+    <!-- Coupon 3 -->
+    <div class="coupon-card">
+        <div class="left">
+            <h2>FREE DELIVERY</h2>
+            <p>On all orders above ₹499</p>
+            <p class="code">Code: <span>FREEDEL</span></p>
+            <p class="expiry">Expires: 31 Dec 2025</p>
+        </div>
+
+        <div class="right">
+            <button class="apply-btn">Apply</button>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
