@@ -11,4 +11,12 @@ urlpatterns = [
     path('orders',views.orders,name='orders'),
     path('coupons',views.coupons,name='coupons'),
     path('notifications',views.notifications,name='notifications'),
+    path('adminpanel/', views.adminpanel, name='adminpanel'),
+    path('admin_product',views.admin_product,name='adminproduct'),
+    path('admincategory',views.admincategory,name='admincategory'),
+    path('adminorder',views.adminorder,name='adminorder'),
+    path('admincoupon',views.admincoupon,name='admincoupon'),
+    path('adminnotification',views.adminnotification,name='adminnotification'),
+    path('adminuser',views.adminuser,name='adminuser'),
+    path('checkout',views.checkout,name='checkout'),
 ]

@@ -21,3 +21,19 @@ def coupons(request):
     return render(request,'coupons.html')
 def notifications(request):
     return render(request,'notifications.html')
+def adminpanel(request):
+    return render(request,'adminpanel.html')
+def admin_product(request):
+    return render(request,'admin_product.html')
+def admincategory(request):
+    return render(request,'admincategory.html')
+def adminorder(request):
+    return render(request,'adminorder.html')
+def admincoupon(request):
+    return render(request,'admincoupon.html')
+def adminnotification(request):
+    return render(request,'adminnotification.html')
+def adminuser(request):
+    return render(request,'adminuser.html')
+def checkout(request):
+    return render(request,'checkout.html')
